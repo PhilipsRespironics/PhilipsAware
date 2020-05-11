@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_login">
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.philips.src.ai.aware.ui.login.LoginFragment"
+        android:label="@string/title_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_navigation_login_to_wearableConsentFragment"
+            app:destination="@id/wearableConsentFragment">
+        </action>
+        <action
+            android:id="@+id/action_navigation_login_to_signupFragment"
+            app:destination="@id/signupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.philips.src.ai.aware.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.philips.src.ai.aware.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/wearableConsentFragment"
+        android:name="com.philips.src.ai.aware.ui.login.WearableConsentFragment"
+        android:label="wearable_consent_fragment"
+        tools:layout="@layout/wearable_consent_fragment">
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="env"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="host"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.philips.src.ai.aware.ui.login.SignupFragment"
+        android:label="signup_fragment"
+        tools:layout="@layout/signup_fragment" >
+        <action
+            android:id="@+id/action_signupFragment_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <argument
+            android:name="env"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="host"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

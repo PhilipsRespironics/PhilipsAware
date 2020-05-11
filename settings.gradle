@@ -1,0 +1,2 @@
+rootProject.name='Philips Aware'
+include ':app'

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Philips Aware</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="loge_desc">Logo</string>
+    <string name="username_label">Username:</string>
+    <string name="password_label">Password:</string>
+    <string name="login_btn_text">Login</string>
+    <string name="googleFitSwitchName">Google Fit</string>
+    <string name="fitbitSwitchName">Fitbit</string>
+    <string name="title_login">Login</string>
+    <string name="consent_done_btn_name">Done</string>
+    <string name="environment_label">"Environment: "</string>
+    <string-array name="environments">
+        <item>Dev</item>
+        <item>Local</item>
+    </string-array>
+</resources>
