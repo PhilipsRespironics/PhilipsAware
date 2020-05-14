@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.android.volley.Request
 import com.android.volley.Response
@@ -16,6 +17,7 @@ import com.android.volley.toolbox.Volley
 
 import com.philips.src.ai.aware.R
 import com.philips.src.ai.aware.ui.SecuredStringRequest
+import kotlinx.android.synthetic.main.signup_fragment.view.*
 import kotlinx.android.synthetic.main.wearable_consent_fragment.view.*
 import org.json.JSONObject
 
@@ -85,6 +87,12 @@ class WearableConsentFragment : Fragment() {
                 queue.add(stringRequest)
             }
         }
+
+        view.consent_done_button.setOnClickListener{ btnView ->
+            val action = WearableConsentFragmentDirections.actionWearableConsentFragmentToNavigationDashboard(args.username, args.password)
+            btnView.findNavController().navigate(action)
+        }
+
         return view
     }
 
