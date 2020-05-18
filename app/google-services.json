@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "289526956513",
+    "firebase_url": "https://p3r-dev.firebaseio.com",
+    "project_id": "p3r-dev",
+    "storage_bucket": "p3r-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289526956513:android:e849cda7b6dd563a0f92a0",
+        "android_client_info": {
+          "package_name": "com.philips.src.ai.aware"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289526956513-4t4po9dqm87i7c3smes5ccdo5d7c7407.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpJgIH0txPyZ_y-iaKv79l3XxMGH7RX_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289526956513-h594qdj6vihhg7meejluo1pr8hhc74dv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
