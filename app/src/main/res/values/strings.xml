@@ -11,6 +11,7 @@
     <string name="title_login">Login</string>
     <string name="consent_done_btn_name">Done</string>
     <string name="environment_label">"Environment: "</string>
+    <string name="default_notification_channel_id">default</string>
     <string-array name="environments">
         <item>Dev</item>
         <item>Local</item>

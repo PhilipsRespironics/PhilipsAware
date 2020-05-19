@@ -31,6 +31,10 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      */
     // [START receive_message]
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        println("got a message -> ")
+        println(remoteMessage.notification?.body)
+        println("-----------------------")
+        println(remoteMessage)
     }
     // [END receive_message]
 
@@ -59,6 +63,7 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      */
     private fun sendRegistrationToServer(token: String?) {
         // TODO: Implement this method to send token to your app server.
+        println("Sending a token to the server: $token")
     }
 
     /**
@@ -67,6 +72,7 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      * @param messageBody FCM message body received.
      */
     private fun sendNotification(messageBody: String) {
+        println("sending a message: $messageBody")
     }
 
     companion object {
