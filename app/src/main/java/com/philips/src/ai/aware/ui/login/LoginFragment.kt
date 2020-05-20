@@ -11,13 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.google.firebase.iid.FirebaseInstanceId
+import com.philips.src.ai.aware.Globals
 import com.philips.src.ai.aware.R
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.view.*
-import okhttp3.Credentials
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
+import okhttp3.*
 import java.util.*
 
 
@@ -53,7 +51,9 @@ class LoginFragment : Fragment() {
                     val token = task.result?.token
                     Log.d("Token", token ?: "none")
                     val updateTokenUrl = "${getHermesHost()}/api/devices/-"
+                    val body = RequestBody.create(MediaType.parse("application/json"), "{\"token\":\"${token}\"}")
                     val updateTokenReq = Request.Builder().url(updateTokenUrl)
+                        .post(body)
                         .addHeader("Authorization", Credentials.basic(username, password))
                         .build()
                     val updateTokenTask = HttpTask(updateTokenReq, httpClient ).execute() as HttpTask
@@ -114,7 +114,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun getHermesHost():String{
-        val env = (environment_spn.selectedItem as String?) ?: "local"
+//        val env = (environment_spn.selectedItem as String?) ?: "local"
         return "https://hermes-service-dev.cloud.pcftest.com"
 //          "https://a9aa6e0d.ngrok.io"
 //        if (env.toLowerCase(Locale.ROOT) == "dev")

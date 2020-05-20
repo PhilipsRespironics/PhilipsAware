@@ -16,9 +16,7 @@
 
 package com.philips.src.ai.aware
 
-import android.app.NotificationManager
 import android.util.Log
-import androidx.core.content.ContextCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -31,10 +29,10 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      */
     // [START receive_message]
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        println("got a message -> ")
-        println(remoteMessage.notification?.body)
-        println("-----------------------")
-        println(remoteMessage)
+        Log.d(TAG, "got a message -> ")
+        Log.d(TAG, "${remoteMessage.notification?.body}")
+        Log.d(TAG, "-----------------------")
+        Log.d(TAG, "$remoteMessage")
     }
     // [END receive_message]
 
@@ -47,7 +45,6 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      */
     override fun onNewToken(token: String) {
         Log.d(TAG, "Refreshed token: $token")
-
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the
         // Instance ID token to your app server.
@@ -63,7 +60,8 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
      */
     private fun sendRegistrationToServer(token: String?) {
         // TODO: Implement this method to send token to your app server.
-        println("Sending a token to the server: $token")
+        Log.d(TAG, "Sending a token to the server: $token")
+        Globals.fcmToken = token
     }
 
     /**

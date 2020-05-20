@@ -44,11 +44,16 @@ class DashboardFragment : Fragment() {
                 url = url,
                 listener = Response.Listener{ response ->
                     val jsonResp = JSONArray(response)
-                    val lastRate = jsonResp.getJSONObject(jsonResp.length()-1)
                     view.heartReatText.text.clear()
-                    view.heartReatText.text.append(lastRate.getInt("heartRate").toString())
-                    view.heartReatText.text.append(" at ")
-                    view.heartReatText.text.append(lastRate.getString("endTime").toString())
+                    if(jsonResp.length() > 0) {
+                        val lastRate = jsonResp.getJSONObject(jsonResp.length() - 1)
+                        view.heartReatText.text.append(lastRate.getInt("heartRate").toString())
+                        view.heartReatText.text.append(" at ")
+                        view.heartReatText.text.append(lastRate.getString("endTime").toString())
+                    }
+                    else{
+                        view.heartReatText.text.append("No Data")
+                    }
                 },
                 errorListener = Response.ErrorListener {
                     Log.d("kevin", "the call failed")
