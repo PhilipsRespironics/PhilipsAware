@@ -17,8 +17,11 @@
 package com.philips.src.ai.aware
 
 import android.util.Log
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import java.util.*
 
 class HermesFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -33,6 +36,17 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
         Log.d(TAG, "${remoteMessage.notification?.body}")
         Log.d(TAG, "-----------------------")
         Log.d(TAG, "$remoteMessage")
+        val builder = NotificationCompat.Builder(this.applicationContext, "default")
+            .setContentTitle("Philips Aware Alert!!!")
+            .setContentText(remoteMessage.notification?.body)
+            .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+            .setAutoCancel(true)
+        Log.d(TAG, "Created Notification Builder")
+        with(NotificationManagerCompat.from(this.applicationContext)){
+            Log.d(TAG, "Creating Notification")
+            notify(888, builder.build())
+            Log.d(TAG, "Notify called")
+        }
     }
     // [END receive_message]
 
@@ -74,6 +88,6 @@ class HermesFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     companion object {
-        private const val TAG = "MyFirebaseMsgService"
+        private const val TAG = "HermesFirebaseMessagingService"
     }
 }

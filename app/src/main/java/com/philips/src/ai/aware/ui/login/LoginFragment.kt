@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
                     val token = task.result?.token
                     Log.d("Token", token ?: "none")
                     val updateTokenUrl = "${getHermesHost()}/api/devices/-"
-                    val body = RequestBody.create(MediaType.parse("application/json"), "{\"token\":\"${token}\"}")
+                    val body = RequestBody.create(MediaType.parse("application/json"), "{\"token\":\"${token}\", \"appId\":\"hermes-e9798\"}")
                     val updateTokenReq = Request.Builder().url(updateTokenUrl)
                         .post(body)
                         .addHeader("Authorization", Credentials.basic(username, password))
