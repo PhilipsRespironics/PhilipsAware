@@ -1,14 +1,7 @@
 package com.philips.src.ai.aware
 
-import android.app.Notification
-import android.app.PendingIntent
-import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
